@@ -8,8 +8,7 @@ class Solution:
         while idx < l:
             if nums[idx] == val:
                 # remove
-                for i in range(idx, l - 1):
-                    nums[i] = nums[i + 1]
+                nums[idx] = nums[l-1]
                 l -= 1
                 continue
             idx += 1
