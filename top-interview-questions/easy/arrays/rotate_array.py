@@ -7,7 +7,7 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
         if k > len(nums):
-            k = k % nums
+            k = k % len(nums)
         for _ in range(k):
             self.rotateRightByOne(nums)
 
@@ -19,10 +19,6 @@ class Solution:
             nums[i] = last
             last = cur
         nums[0] = cur
-
-
-def my_id(x):
-    return x
 
 
 if __name__ == '__main__':
