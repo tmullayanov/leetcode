@@ -11,6 +11,7 @@ class Solution:
         for _ in range(k):
             self.rotateRightByOne(nums)
 
+    # exceeds Time Limit. Refer to 189. Rotate Array for correct solution
     def rotateRightByOne(self, nums: List[int]) -> None:
         n = len(nums)
         last = cur = nums[0]
