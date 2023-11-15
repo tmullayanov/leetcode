@@ -44,39 +44,27 @@ class ListNode:
 
 class Solution:
     def oddEvenList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        if not head:
-            return None
+        if not head or not head.next or not head.next.next:
+            return head
 
-        odds_head = head
-        odd = odds_head
+        even_head = head
+        even = even_head
 
-        evens_head = None
-        even = evens_head
+        odd_head = head.next
+        odd = odd_head
 
-        is_odd = True
+        while odd and odd.next:
+            even.next = odd.next
+            even = even.next
 
-        _next = head.next
+            odd.next = even.next
+            odd = odd.next
 
-        while _next:
-            if is_odd:
-                if not evens_head:
-                    evens_head = _next
-                    even = _next
-                else:
-                    even.next = _next
-                    even = even.next
-            else:
-                odd.next = _next
-                odd = odd.next
+        # if odd:
+        #     odd.next = None
+        even.next = odd_head
 
-            is_odd = not is_odd
-            _next = _next.next
-
-        if even:
-            even.next = None
-        odd.next = evens_head
-
-        return odds_head
+        return even_head
 
 
 class OddEvenLL(unittest.TestCase):
